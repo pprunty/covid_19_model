@@ -45,14 +45,33 @@ model the spread of an infectious disease for different degrees of social distan
 The hazard rate is the he conditional probability density of an event X happening at x given that it survives to that 
 point and is given by:
 
+![Screenshot](equations/hazard_rate.png)
 
 The survival function is thus:
 
+![Screenshot](equations/survival_function.png)
 
+If we assume a constant hazard rate hX(x) = λ then this just becomes:
+
+![Screenshot](equations/survival_function_constant.png)
+
+Or equivalently, we can write:
+
+![Screenshot](equations/survival_function_cum.png)
+
+This is just an exponential distribution. You can invert the equation above and use the inverse transform method to 
+map a uniform random variate, y ∈ U(0,1), back to exponentially distributed t
+
+![Screenshot](equations/exponential_t.png)
+
+For the model we will assume a constant hazard rate. When a person is “infected” we will 
+randomly assign a days-to-death variable. We will have a fixed time-to-recovery parameter (e.g. 14 days/turns). If the 
+days-to-death is greater than the recovery time, then the person will be cured and become immune at 14 days. If their 
+randomly assigned days-to-death is say 5, then they will die and be removed after 5 days.
 
 ## Requirements
 
-- gcc
+- g++
 - gnuplot (if you would like to produce graphics)
 
 ## Compilation and Usage
