@@ -25,12 +25,12 @@ std::mt19937 mt(4321);
 int main(int argc, char *argv[])
 {
     const int DIM {10};
-    const int NUM_TURNS{10};
+    const int NUM_TURNS{100};
     
     auto p = std::make_shared<Params>();
     p->xdim = DIM;
     p->ydim = DIM;
-    Point home {static_cast<int>(gen() % 100),static_cast<int>(gen() % 100)};
+    Point home {5,5};
 
  	/*
 	 * Add a try catch block
@@ -52,7 +52,6 @@ int main(int argc, char *argv[])
 	    A.propose_move();
         std::cout << A << '\n';
 	}
-
 
     return 0;
 }

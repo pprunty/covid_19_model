@@ -4,7 +4,7 @@ Metropolis algorithm to control people's degree of social distancing on the grid
 probabilities with a constant hazard rate to determine how many days a person has until death given 
 that they are currently infected and have survived up to time t.
 
-![Screenshot](graphics/i100_k0.5_p10000_t0.3.pdf)
+![Screenshot](graphics/i100_k0_p10000_t0.5.png)
 
 ## Contents
 
@@ -27,15 +27,15 @@ of social distancing can be seen below:
 
 k = 0
 
-![Screenshot](graphics/K_0.0_TIMESTEPS_100.pdf)
+![Screenshot](graphics/k_0_timesteps_100.png)
 
 k = 0.5
 
-![Screenshot](graphics/K_0.5_TIMESTEPS_100.pdf)
+![Screenshot](graphics/k_0.5_timesteps_100.png)
 
 k = 1
 
-![Screenshot](graphics/K_1.0_TIMESTEPS_100.pdf)
+![Screenshot](graphics/k_1_timesteps_100.png)
 
 As illustrated, as k increases, the degree to which this person stays close to "home" increases. This gives us control to
 model the spread of an infectious disease for different degrees of social distancing k.
@@ -72,35 +72,40 @@ To run the program, simply run the following command inside a terminal in the pr
 To produce graphics for the 2d walk, run the following commands inside the gnuplot terminal in the project directory:
 
 ```shell
-./2d_walk 0 > k_0_timesteps_10.txt
+./2d_walk 0 > k_0_timesteps_100.txt
 ```
 
 To produce graphics for the random walk, run the following commands inside the gnuplot terminal in the project directory:
 
 ```shell
-set title "k=0, timesteps=10"
+set title "k=0, timesteps=100"
+set xrange [0:10]
+set yrange [0:10]
 set grid ytics lt 0 lw 1 lc rgb "#bbbbbb"
 set grid xtics lt 0 lw 1 lc rgb "#bbbbbb"
-plot 'k_0_timesteps_10.txt' with lines
+plot 'k_0.5_timesteps_100.txt' with lines title "2d random walk"
 ```
 
 To produce graphics for the disease simulation, run the following commands inside the gnuplot terminal in the project directory:
 
 ```shell
 set key outside
-set xrange [0:100]
+set xrange [0:80]
 set yrange [0:10000]
 set title "set title i=100, k=1, p=10000, t=0.3"
-plot '100x100_p10000_i100_k0_d0.2_t0.3.txt' using 1:2 with filledcurves x2 title "Didn't Catch" linetype 4, \
-'100x100_p10000_i100_k0_d0.2_t0.3.txt' using 1:4 with filledcurves x1 title "Dead" linetype 3, \
-'100x100_p10000_i100_k0_d0.2_t0.3.txt' using 1:3 with filledcurves x1 title "Reovered" linetype 2, \
-'100x100_p10000_i100_k0_d0.2_t0.3.txt' using 1:2 with filledcurves x1 title "Infected" linetype 1, \
+plot '100x100_p10000_i100_k0.5_d0.2_t0.5.txt' using 1:2 with filledcurves x2 title "Didn't Catch" linetype 4, \
+'100x100_p10000_i100_k0.5_d0.2_t0.5.txt' using 1:4 with filledcurves x1 title "Dead" linetype 3, \
+'100x100_p10000_i100_k0.5_d0.2_t0.5.txt' using 1:3 with filledcurves x1 title "Reovered" linetype 2, \
+'100x100_p10000_i100_k0.5_d0.2_t0.5.txt' using 1:2 with filledcurves x1 title "Infected" linetype 1, \
 ```
 
 Note: I know I can add this to the Makefile as 'make plot' but I prefer to leave the commands here so I can return to them.
 
 ## Results
 
+![Screenshot](graphics/i100_k0_p10000_t0.5.png)
+
+![Screenshot](graphics/i100_k1_p10000_t0.5.png)
 
 
 
