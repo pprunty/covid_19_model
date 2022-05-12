@@ -1,7 +1,7 @@
 /**
  * \file grid.h
  * \brief File to hold class definition for Grid class
- * \author R. Morrin
+ * \author P. Prunty
  * \version 1.0
  * \date 2020-04-12
  */
