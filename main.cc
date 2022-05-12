@@ -1,7 +1,7 @@
 /**
  * \file assignment4b.cc
  * \brief Main function for second part of Assignment 4
- * \author R. Morrin
+ * \author P. Prunty
  * \version 1.0
  * \date 2020-04-12
  */
