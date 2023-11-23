@@ -1,3 +1,5 @@
+Part of a college assignment...
+
 # COVID-19 Model
 This program uses Monte Carlo simulation to model the spread of an infectious disease using the
 Metropolis algorithm to control people's degree of social distancing on the grid along with survival
